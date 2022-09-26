@@ -4,24 +4,19 @@ import styles from "./Todos.module.css";
 
 type TodosProps = {
   items: Todo[];
-  onDeleteTodo: any;
+  onDeleteTodo: (todoId: number) => void;
 };
 
 const Todos = ({ items, onDeleteTodo }: TodosProps) => {
   return (
     <ul className={styles.todos}>
       {items.map((item) => (
-        <>
-          <TodoItem key={item.id} text={item.text} />
-          <button
-            key={Math.random()}
-            onClick={() => {
-              onDeleteTodo(item.id);
-            }}
-          >
-            delete
-          </button>
-        </>
+        <TodoItem
+          key={item.id}
+          id={item.id}
+          text={item.text}
+          onDeleteTodo={onDeleteTodo}
+        />
       ))}
     </ul>
   );
