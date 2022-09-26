@@ -13,9 +13,9 @@ const Todos = ({ items, onDeleteTodo }: TodosProps) => {
       {items.map((item) => (
         <TodoItem
           key={item.id}
-          id={item.id}
           text={item.text}
-          onDeleteTodo={onDeleteTodo}
+          // about the bind method
+          onDeleteTodo={onDeleteTodo.bind(null, item.id)}
         />
       ))}
     </ul>

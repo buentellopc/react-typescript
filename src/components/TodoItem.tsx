@@ -2,18 +2,12 @@ import styles from "./TodoItem.module.css";
 
 interface TodoItemProps {
   text: string;
-  onDeleteTodo: (todoId: number) => void;
-  id: number;
+  onDeleteTodo: () => void;
 }
 
-const TodoItem = ({ text, onDeleteTodo, id }: TodoItemProps) => {
+const TodoItem = ({ text, onDeleteTodo }: TodoItemProps) => {
   return (
-    <li
-      className={styles.item}
-      onClick={() => {
-        onDeleteTodo(id);
-      }}
-    >
+    <li className={styles.item} onClick={onDeleteTodo}>
       {text}
     </li>
   );
