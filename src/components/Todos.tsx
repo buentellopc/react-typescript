@@ -1,8 +1,16 @@
-const Todos = () => {
+import Todo from "../models/todo";
+import TodoItem from "./TodoItem";
+
+type TodosProps = {
+  items: Todo[];
+};
+
+const Todos = ({ items }: TodosProps) => {
   return (
     <ul>
-      <li>hey</li>
-      <li>there</li>
+      {items.map((item) => (
+        <TodoItem key={item.id} text={item.text} />
+      ))}
     </ul>
   );
 };
